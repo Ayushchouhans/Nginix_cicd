@@ -17,10 +17,10 @@ pipeline {
         stage("Push to Docker Hub"){
             steps {
                 echo "Pushing the image to docker hub"
-                withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
-                sh "docker tag web3 ${env.dockerHubUser}/web3:latest"
-                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                sh "docker push ${env.dockerHubUser}/web3:latest"
+                withCredentials([usernamePassword(credentialsId:"docker",passwordVariable:"dockerPass",usernameVariable:"dockerUser")]){
+                sh "docker tag web3 ${env.dockerUser}/web3:latest"
+                sh "docker login -u ${env.dockerUser} -p ${env.dockerPass}"
+                sh "docker push ${env.dockerUser}/web3:latest"
                 }
             }
         }
