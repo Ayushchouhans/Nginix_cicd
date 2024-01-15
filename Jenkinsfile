@@ -5,7 +5,7 @@ pipeline {
         stage("Clone Code"){
             steps {
                 echo "Cloning the code"
-                git url:"https://github.com/Yash3148/Personal-Website.git", branch: "gh-pages"
+                git url:"https://github.com/Ayushchouhans/Nginix_cicd.git", branch: "main"
             }
         }
         stage("Build"){
